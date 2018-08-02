@@ -34,3 +34,6 @@ as this syntax may change in a future version of Flutter.
 Also note that there will be an error reported about `dart:ui` until
 https://github.com/dart-lang/build/issues/733 is resolved, but the code should
 still get generated.
+
+The `example/` folder contains a full working example for Flutter, including 
+the `build.yaml` and generated code.
