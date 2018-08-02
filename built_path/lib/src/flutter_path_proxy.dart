@@ -1,4 +1,3 @@
-
 import 'package:path_parsing/path_parsing.dart';
 
 class FlutterPathGenProxy extends PathProxy {

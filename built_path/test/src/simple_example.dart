@@ -4,10 +4,8 @@ import 'package:built_path_annotations/built_path_annotations.dart';
 part 'simple_example.svg_path.g.dart';
 
 // stub, we're not referncing dart:ui here
-enum PathFillType {
-  nonZero,
-  evenOdd
-}
+enum PathFillType { nonZero, evenOdd }
+
 // stub, we're not referencing dart:ui here
 class Path {
   void lineTo(double x, double y) {}
@@ -22,7 +20,8 @@ class Path {
 @SvgPath('M 10 10 L 20 20 z')
 Path get path => _$path;
 
-@SvgPath('M 250,75 L 323,301 131,161 369,161 177,301 z', fillRule: FillRule.evenOdd)
+@SvgPath('M 250,75 L 323,301 131,161 369,161 177,301 z',
+    fillRule: FillRule.evenOdd)
 Path get star => _$star;
 
 class Paths {
