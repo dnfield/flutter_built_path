@@ -17,7 +17,7 @@ Will generate Dart code like the following:
 
 ```dart
 Path __$diagonalLine;
-Path get _$diagonalLine => __$diagonalLine ?? 
+Path get _$diagonalLine => __$diagonalLine ??
   (__$diagonalLine = new Path()
                       ..moveTo(10.0, 10.0)
                       ..lineTo(20.0, 20.0)

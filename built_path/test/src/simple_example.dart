@@ -3,11 +3,12 @@ import 'package:built_path_annotations/built_path_annotations.dart';
 
 part 'simple_example.svg_path.g.dart';
 
-// stub these out
+// stub, we're not referncing dart:ui here
 enum PathFillType {
   nonZero,
   evenOdd
 }
+// stub, we're not referencing dart:ui here
 class Path {
   void lineTo(double x, double y) {}
   void moveTo(double x, double y) {}
