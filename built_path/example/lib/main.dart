@@ -28,25 +28,39 @@ class MyHomePage extends StatelessWidget {
   // @SvgPath('M10 20 C 10 10 20 10 25 20 S 40 30 40 20')
   Path get path => _$MyHomePage_path;
 
+  @SvgPath('M 250,75 L 323,301 131,161 369,161 177,301 z',
+      fillRule: FillRule.evenOdd)
+  Path get star => _$MyHomePage_star;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(title),
       ),
-      body: new CustomPaint(painter: new PathPainter(path)),
+      body: new Column(
+        children: <Widget>[
+          new CustomPaint(painter: new PathPainter(path)),
+          new CustomPaint(painter: new PathPainter(star, false)),
+        ],
+      ),
     );
   }
 }
 
 class PathPainter extends CustomPainter {
-  PathPainter(this.path);
+  PathPainter(this.path, [this.isStroke = true]);
 
-  Path path;
+  final Path path;
+  final bool isStroke;
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawPath(path, new Paint()..style = PaintingStyle.stroke..strokeWidth = 4.0);
+    canvas.drawPath(
+        path,
+        new Paint()
+          ..style = isStroke ? PaintingStyle.stroke : PaintingStyle.fill
+          ..strokeWidth = 4.0);
   }
 
   @override

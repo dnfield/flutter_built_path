@@ -3,8 +3,8 @@ targets:
     builders:
       built_path:
         generate_for:
-          - example/lib/main.dart
-          - test/src/simple_example.dart
+          # - example/lib/main.dart
+          - test/src/*_example.dart
 
 builders:
   built_path:

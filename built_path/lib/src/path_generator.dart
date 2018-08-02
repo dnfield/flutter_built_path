@@ -19,6 +19,15 @@ Builder svgPathSharedPartBuilder({String formatOutput(String code)}) {
 class SvgPathGenerator extends Generator {
   final TypeChecker _checker = const TypeChecker.fromRuntime(SvgPath);
 
+  String _getFillRule(int index) {
+    if (index == 0) {
+      return '..fillType = PathFillType.nonZero';
+    } else if (index == 1) {
+      return '..fillType = PathFillType.evenOdd';
+    }
+    throw new StateError('Unhandled FillRule index $index');
+  }
+
   void checkField(Element field, StringBuffer buffer, String friendlyName) {
     DartObject annotation = _checker.firstAnnotationOf(field);
     if (annotation == null && field is FieldElement) {
@@ -26,14 +35,21 @@ class SvgPathGenerator extends Generator {
     }
     if (annotation != null) {
       buffer.writeln('Path __\$$friendlyName;');
-      buffer.writeln('Path get _\$$friendlyName => __\$$friendlyName ?? (__\$$friendlyName =');
+      buffer.writeln(
+          'Path get _\$$friendlyName => __\$$friendlyName ?? (__\$$friendlyName =');
       final FlutterPathGenProxy proxy = new FlutterPathGenProxy();
+
       writeSvgPathDataToPath(
         annotation.getField('data').toStringValue(),
         proxy,
       );
       buffer.write(proxy);
-      
+
+      final int fillRuleIndex =
+          annotation.getField('fillRule')?.getField('index')?.toIntValue();
+      if (fillRuleIndex != null) {
+        buffer.write(_getFillRule(fillRuleIndex));
+      }
       buffer.writeln(');');
     }
   }

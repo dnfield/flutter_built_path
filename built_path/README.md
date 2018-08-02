@@ -23,3 +23,7 @@ Path get _$diagonalLine => __$diagonalLine ??
                       ..lineTo(20.0, 20.0)
                       ..close());
 ```
+
+Note that for a Flutter project, you'll have to run `flutter packages pub run build_runner build`.
+Also note that there will be an error reported about `dart:ui` until https://github.com/dart-lang/build/issues/733
+is resolved.
