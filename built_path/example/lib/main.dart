@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @SvgPath('M20,30 Q40,5 60,30 T100,30')
