@@ -1,0 +1,28 @@
+name: built_path
+version: 0.1.0
+description: >-
+  Process SVG Path data into Flutter Path objects
+  using build_runner.
+
+author: Dan Field <dfield@gmail.com>
+homepage: https://github.com/dnfield/flutter_built_path
+
+environment:
+  sdk: '>=2.0.0-dev <3.0.0'
+  # flutter: ">=0.5.1 <2.0.0"
+    
+dependencies:
+  build: ^0.12.7
+  # built_path_annotations: ^0.1.0
+  built_path_annotations:
+    path: ../built_path_annotations
+  path_parsing: ^0.1.2
+  source_gen: ^0.9.0
+  # flutter:
+  #   sdk: flutter
+
+dev_dependencies:
+  build_config: ^0.3.1
+  build_runner: ^0.9.2
+  build_test: ^0.10.3
+  test: ">=0.12.34 <1.0.0"

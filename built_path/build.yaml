@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      built_path:
+        generate_for:
+          - example/lib/main.dart
+          - test/src/simple_example.dart
+
+builders:
+  built_path:
+    import: "package:built_path/builder.dart"
+    builder_factories: ["svgPath"]
+    build_extensions: {".dart": [".g.dart"]}
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["source_gen|combining_builder"]
+
