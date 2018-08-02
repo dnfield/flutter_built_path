@@ -1,6 +1,7 @@
 # Built Path
 
-This library can help Flutter applications pre-compile SVG Path data into Flutter (`dart:ui`) `Path` objects.
+This library can help Flutter applications pre-compile SVG Path data into 
+Flutter (`dart:ui`) `Path` objects.
 
 For example:
 
@@ -16,6 +17,8 @@ Path get diagonalLine => _$diagonalLine;
 Will generate Dart code like the following:
 
 ```dart
+part of 'example.dart'
+
 Path __$diagonalLine;
 Path get _$diagonalLine => __$diagonalLine ??
   (__$diagonalLine = new Path()
@@ -24,6 +27,10 @@ Path get _$diagonalLine => __$diagonalLine ??
                       ..close());
 ```
 
-Note that for a Flutter project, you'll have to run `flutter packages pub run build_runner build`.
-Also note that there will be an error reported about `dart:ui` until https://github.com/dart-lang/build/issues/733
-is resolved.
+Note that for a Flutter project, you'll have to run
+`flutter packages pub run build_runner build`. Follow https://github.com/flutter/flutter/issues/13360,
+as this syntax may change in a future version of Flutter.
+
+Also note that there will be an error reported about `dart:ui` until
+https://github.com/dart-lang/build/issues/733 is resolved, but the code should
+still get generated.
