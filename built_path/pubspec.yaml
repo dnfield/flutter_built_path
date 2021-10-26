@@ -14,9 +14,9 @@ environment:
 dependencies:
   analyzer: ^2.7.0
   build: ^2.1.1
-  #built_path_annotations: ^0.1.0
-  built_path_annotations:
-    path: ../built_path_annotations
+  built_path_annotations: ^0.1.0
+  # built_path_annotations:
+  #   path: ../built_path_annotations
   path_parsing: ^0.2.1
   source_gen: ^1.1.1
   # flutter:
