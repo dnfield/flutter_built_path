@@ -1,5 +1,5 @@
 name: built_path_annotations
-version: 0.1.0
+version: 0.2.0
 description: >-
   Contains annotations for `package:built_path`.
   See that package for more information.
@@ -8,7 +8,7 @@ author: Dan Field <dfield@gmail.com>
 homepage: https://github.com/dnfield/flutter_built_path
 
 environment:
-  sdk: '>=2.0.0-dev <3.0.0'
+  sdk: '>=2.12.0 <3.0.0'
   # flutter: ">=0.5.1 <2.0.0"
     
 # dependencies:

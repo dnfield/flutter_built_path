@@ -5,7 +5,7 @@ class SvgPath {
   final String data;
 
   /// Will control the [PathFillType] for the [Path].
-  final FillRule fillRule;
+  final FillRule? fillRule;
 }
 
 enum FillRule { nonZero, evenOdd }
