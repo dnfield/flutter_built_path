@@ -7,7 +7,7 @@ part of 'main.dart';
 // SvgPathGenerator
 // **************************************************************************
 
-Path __$MyHomePage_path;
+Path? __$MyHomePage_path;
 Path get _$MyHomePage_path =>
     __$MyHomePage_path ??
     (__$MyHomePage_path = new Path()
@@ -16,7 +16,7 @@ Path get _$MyHomePage_path =>
           13.333333333333332, 60.0, 30.0)
       ..cubicTo(73.33333333333333, 46.666666666666664, 86.66666666666666,
           46.666666666666664, 100.0, 30.0));
-Path __$MyHomePage_star;
+Path? __$MyHomePage_star;
 Path get _$MyHomePage_star =>
     __$MyHomePage_star ??
     (__$MyHomePage_star = new Path()

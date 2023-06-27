@@ -28,12 +28,7 @@ Path get _$diagonalLine => __$diagonalLine ??
 ```
 
 Note that for a Flutter project, you'll have to run
-`flutter packages pub run build_runner build`. Follow https://github.com/flutter/flutter/issues/13360,
-as this syntax may change in a future version of Flutter.
-
-Also note that there will be an error reported about `dart:ui` until
-https://github.com/dart-lang/build/issues/733 is resolved, but the code should
-still get generated.
+`dart run build_runner build`.
 
 The `example/` folder contains a full working example for Flutter, including 
 the `build.yaml` and generated code.
