@@ -7,14 +7,14 @@ part of 'simple_example.dart';
 // SvgPathGenerator
 // **************************************************************************
 
-Path __$path;
+Path? __$path;
 Path get _$path =>
     __$path ??
     (__$path = new Path()
       ..moveTo(10.0, 10.0)
       ..lineTo(20.0, 20.0)
       ..close());
-Path __$star;
+Path? __$star;
 Path get _$star =>
     __$star ??
     (__$star = new Path()
@@ -25,7 +25,7 @@ Path get _$star =>
       ..lineTo(177.0, 301.0)
       ..close()
       ..fillType = PathFillType.evenOdd);
-Path __$Paths_anotherPath;
+Path? __$Paths_anotherPath;
 Path get _$Paths_anotherPath =>
     __$Paths_anotherPath ??
     (__$Paths_anotherPath = new Path()

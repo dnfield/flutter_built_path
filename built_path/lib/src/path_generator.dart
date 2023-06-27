@@ -8,7 +8,7 @@ import 'package:built_path_annotations/built_path_annotations.dart';
 import 'package:path_parsing/path_parsing.dart';
 import 'package:source_gen/source_gen.dart';
 
-Builder svgPathSharedPartBuilder({String formatOutput(String code)}) {
+Builder svgPathSharedPartBuilder({String formatOutput(String code)?}) {
   return new PartBuilder(
       <Generator>[new SvgPathGenerator()], '.svg_path.g.dart',
       formatOutput: formatOutput,
@@ -29,23 +29,26 @@ class SvgPathGenerator extends Generator {
   }
 
   void checkField(Element field, StringBuffer buffer, String friendlyName) {
-    DartObject annotation = _checker.firstAnnotationOf(field);
+    DartObject? annotation = _checker.firstAnnotationOf(field);
     if (annotation == null && field is FieldElement) {
-      annotation = _checker.firstAnnotationOf(field.getter);
+      final PropertyAccessorElement? getter = field.getter;
+      if (getter != null) {
+        annotation = _checker.firstAnnotationOf(getter);
+      }
     }
     if (annotation != null) {
-      buffer.writeln('Path __\$$friendlyName;');
+      buffer.writeln('Path? __\$$friendlyName;');
       buffer.writeln(
           'Path get _\$$friendlyName => __\$$friendlyName ?? (__\$$friendlyName =');
       final FlutterPathGenProxy proxy = new FlutterPathGenProxy();
 
       writeSvgPathDataToPath(
-        annotation.getField('data').toStringValue(),
+        annotation.getField('data')?.toStringValue(),
         proxy,
       );
       buffer.write(proxy);
 
-      final int fillRuleIndex =
+      final int? fillRuleIndex =
           annotation.getField('fillRule')?.getField('index')?.toIntValue();
       if (fillRuleIndex != null) {
         buffer.write(_getFillRule(fillRuleIndex));
@@ -58,12 +61,20 @@ class SvgPathGenerator extends Generator {
   FutureOr<String> generate(LibraryReader library, BuildStep buildStep) async {
     final StringBuffer buffer = new StringBuffer();
     for (Element el in library.allElements) {
+      final String? name = el.name;
+      if (name == null) {
+        continue;
+      }
       if (el is ClassElement) {
         for (FieldElement field in el.fields) {
-          checkField(field, buffer, '${el.name}_${field.name}');
+          final String? fieldName = field.name;
+          if (fieldName == null) {
+            continue;
+          }
+          checkField(field, buffer, '${name}_$fieldName');
         }
       } else {
-        checkField(el, buffer, el.name);
+        checkField(el, buffer, name);
       }
     }
     return buffer.toString();

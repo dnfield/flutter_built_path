@@ -8,11 +8,11 @@ author: Dan Field <dfield@gmail.com>
 homepage: https://github.com/dnfield/flutter_built_path
 
 environment:
-  sdk: '>=2.0.0-dev <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
   # flutter: ">=0.5.1 <2.0.0"
     
 dependencies:
-  analyzer: ^2.7.0
+  analyzer: ^5.13.0
   build: ^2.1.1
   built_path_annotations: ^0.1.0
   # built_path_annotations:
